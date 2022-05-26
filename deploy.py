@@ -9,14 +9,15 @@ model = pickle.load(open('savedmodel.sav','rb'))
 @app.route('/')
 def home():
     result = ' '
-    return render_template('index.html', **locals)
+    return render_template('index.html', **locals() )
 
 
 @app.route('/predict', methods=['POST', 'GET'])
 def recommend():
-    result = model.recommend(['user_id'])
-    return render_template('index.html',  prediction_text='CO2 Emission of the vehicle is :{}'.format(result))
-
+    userID = request.form['enginesize']
+    result = model.recommend([userID])
+    return render_template('index.html', **locals() )
+# prediction_text='CO2 Emission of the vehicle is :{}'.format(result)
 
 
 if __name__ == '_main_':

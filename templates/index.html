@@ -5,10 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spotify - Your favourite music is here</title>
-    <!-- <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
-    /> -->
   </head>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
@@ -62,6 +58,28 @@
       padding: 34px;
       background-image: url("bg.jpg");
     }
+    .about{
+        min-height: 22vh;
+      background-color: black;
+      color: white;
+      font-family: "Varela Round", sans-serif;
+      /* display: flex; */
+      margin: 23px auto;
+      width: 70%;
+      border-radius: 12px;
+      padding: 34px;
+    }
+    .recommended{
+        min-height: 22vh;
+      background-color: black;
+      color: white;
+      font-family: "Varela Round", sans-serif;
+      /* display: flex; */
+      margin: 23px auto;
+      width: 70%;
+      border-radius: 12px;
+      padding: 34px;
+    }
 
     .bottom {
       position: sticky;
@@ -95,7 +113,7 @@
       height: 50px;
       display: flex;
       background-color: white;
-
+      padding-left: 15px;
       color: black;
       margin: 12px 0;
       justify-content: space-between;
@@ -149,7 +167,7 @@
         <h1><u>Songs Recommended For You</u></h1>
         <div class="songItemContainer">
           <div class="songItem">
-            <img alt="1" />
+            <!-- <img alt="1" /> -->
             <span class="songName">Let me Love You</span>
             <span class="songlistplay"
               ><span class="timestamp"
@@ -158,7 +176,7 @@
             ></span>
           </div>
           <div class="songItem">
-            <img alt="1" />
+            <!-- <img alt="1" /> -->
             <span class="songName">Let me Love You</span>
             <span class="songlistplay"
               ><span class="timestamp"
@@ -167,7 +185,7 @@
             ></span>
           </div>
           <div class="songItem">
-            <img alt="1" />
+            <!-- <img alt="1" /> -->
             <span class="songName">Let me Love You</span>
             <span class="songlistplay"
               ><span class="timestamp"
@@ -176,7 +194,7 @@
             ></span>
           </div>
           <div class="songItem">
-            <img alt="1" />
+            <!-- <img alt="1" /> -->
             <span class="songName">Let me Love You</span>
             <span class="songlistplay"
               ><span class="timestamp"
@@ -185,7 +203,7 @@
             ></span>
           </div>
           <div class="songItem">
-            <img alt="1" />
+            <!-- <img alt="1" /> -->
             <span class="songName">Let me Love You</span>
             <span class="songlistplay"
               ><span class="timestamp"
@@ -194,7 +212,7 @@
             ></span>
           </div>
           <div class="songItem">
-            <img alt="1" />
+            <!-- <img alt="1" /> -->
             <span class="songName">Let me Love You</span>
             <span class="songlistplay"
               ><span class="timestamp"
@@ -203,7 +221,7 @@
             ></span>
           </div>
           <div class="songItem">
-            <img alt="1" />
+            <!-- <img alt="1" /> -->
             <span class="songName">Let me Love You</span>
             <span class="songlistplay"
               ><span class="timestamp"
@@ -212,7 +230,7 @@
             ></span>
           </div>
           <div class="songItem">
-            <img alt="1" />
+            <!-- <img alt="1" /> -->
             <span class="songName">Let me Love You</span>
             <span class="songlistplay"
               ><span class="timestamp"
@@ -221,7 +239,7 @@
             ></span>
           </div>
           <div class="songItem">
-            <img alt="1" />
+            <!-- <img alt="1" /> -->
             <span class="songName">Let me Love You</span>
             <span class="songlistplay"
               ><span class="timestamp"
@@ -230,7 +248,7 @@
             ></span>
           </div>
           <div class="songItem">
-            <img alt="1" />
+            <!-- <img alt="1" /> -->
             <span class="songName">Let me Love You</span>
             <span class="songlistplay"
               ><span class="timestamp"
@@ -244,22 +262,22 @@
     </div>
 
     <div class="recommended">
-        <h2> Top songs based on your choice.</h2>
-        <form action="{{ url_for('predict')}}" method="post">
+        <h2> Top songs based on your choice.</h2><br/>
+        <form action="/predict" method="post">
             <input type="text" name="enginesize" placeholder="Enter Your Song" required="required" />
             <button type="submit" class="btn">Get Result</button>
-        </form>         
+        </form>             
+        <div class="res">
+            
+            {{  result  }}   
+    
+    
+        </div>
     </div>
 
-    <div class="res">
-        
-        {{  prediction_text  }}   
-
-
-    </div>
 
     <div class="about" id="about">
-        <h1 >About</h1>
+        <h1 >About</h1><br/>
         <p>This is a spotify clone which recommends users songs that are similar to thier likings.</p>
     </div>
 
